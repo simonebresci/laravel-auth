@@ -20,3 +20,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Ruote index pubblica
+Route::get('pizzas','PublicController@index')->name('public-pizzas.index');
+
+
+// Restanti Ruote private
+// Route::resource('/pizzas','PrivateController');
+// /admin/pizza
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function () {
+        Route::resource('pizzas', PrivateController::class);
+    });
