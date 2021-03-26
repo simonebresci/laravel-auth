@@ -1,1 +1,0 @@
-Public pizzas index

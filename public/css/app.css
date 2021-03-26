@@ -10007,6 +10007,16 @@ h3 {
     border-color: #dee2e6;
   }
 }
-* {
-  color: blue;
+.user-logged {
+  border: 2px solid blue;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.pizza-record img {
+  max-width: 150px;
+  max-height: 150px;
 }

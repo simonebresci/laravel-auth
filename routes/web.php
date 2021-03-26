@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Ruote index pubblica
-Route::get('pizzas','PublicController@index')->name('public-pizzas.index');
+Route::get('pizzas','PublicController@index')->name('public-pizzas');
 
 
 // Restanti Ruote private

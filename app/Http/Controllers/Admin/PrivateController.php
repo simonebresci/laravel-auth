@@ -15,11 +15,7 @@ class PrivateController extends Controller
      */
     public function index()
     {
-        echo "private -index <br>";
-        echo "fare redirect a public-pizzas.index";
-
-        // return redirect()->route('public-pizzas.index');
-        // return redirect()->route('public-pizzas.index');
+        return redirect()->route('public-pizzas');
     }
 
     /**
@@ -29,7 +25,7 @@ class PrivateController extends Controller
      */
     public function create()
     {
-        echo "private-create";
+        return view('pizzas.create');
     }
 
     /**
@@ -40,18 +36,43 @@ class PrivateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //Prendi dati da request Http
+        $data = $request->all();
+
+        // Valida il dato
+        // $request->validate([
+        //   'name' => 'required | max:255',
+        //   'type' => 'required | max:40',
+        //   'quantityL' => 'required | numeric',
+        //   'price' => 'required | numeric',
+        //   'description' => 'required | max:2048',
+        //   'img_path' => 'required | max:2048'
+        // ]);
+
+        // Crea nuovo oggetto birra
+        $pizza = new Pizza();
+
+        // Riempi i campi dell'oggetto - versione compatta
+        $pizza->fill($data); //Regole di fill descritte nel modello Beer
+
+        // Salva nuovo oggetto in db
+        $pizza->save();
+
+        // Redirect su nuova birra salvata
+        $pizzaStored = Pizza::orderBy('id','desc')->first();
+        return redirect()->route('pizzas.show',$pizzaStored);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Pizza $pizza
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pizza $pizza)
     {
-        //
+        return view('pizzas.show',compact('pizza'));
     }
 
     /**
@@ -60,9 +81,9 @@ class PrivateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pizza $pizza)
     {
-        //
+        return view('pizza.edit',compact('pizza'));
     }
 
     /**
