@@ -3,8 +3,5 @@
 @section('title','Pizza edit')
 
 @section('content')
-  <div class="main-content">
-
-    PIZZA EDIT
- </div>
+  @include('layouts.form', ['edit' => true]);
 @endsection

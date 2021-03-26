@@ -83,7 +83,7 @@ class PrivateController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-        return view('pizza.edit',compact('pizza'));
+        return view('pizzas.edit',compact('pizza'));
     }
 
     /**
@@ -93,9 +93,24 @@ class PrivateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Pizza $pizza)
     {
-        //
+      $data = $request->all();
+
+      // Valida il dato
+      // $request->validate([
+      //   'name' => 'required | max:255',
+      //   'type' => 'required | max:40',
+      //   'quantityL' => 'required | numeric',
+      //   'price' => 'required | numeric',
+      //   'description' => 'required | max:2048',
+      //   'img_path' => 'required | max:2048'
+      // ]);
+
+
+      $pizza->update($data);
+
+      return redirect()->route('pizzas.show',compact('pizza'));
     }
 
     /**
@@ -104,8 +119,9 @@ class PrivateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pizza $pizza)
     {
-        //
+      $pizza->delete();
+      return redirect()->route('pizzas.index');
     }
 }

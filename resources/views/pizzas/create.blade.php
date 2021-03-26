@@ -3,5 +3,5 @@
 @section('title','Pizza create')
 
 @section('content')
-  @include('layouts.form');
+  @include('layouts.form', ['edit' => false]);
 @endsection
