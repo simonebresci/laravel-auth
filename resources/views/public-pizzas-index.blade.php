@@ -3,7 +3,7 @@
 @section('title','Public pizza index')
 
 @section('content')
-  <div class="main-content">
+  {{-- <div class="main-content"> --}}
 
     <table class="table">
       <thead class="thead-dark">
@@ -49,13 +49,13 @@
           <td>{{$pizza->peso}}</td>
           @auth
           <td>
-            <a href={{route('pizzas.show',compact('pizza'))}}>VIEW</a>
-            <a href={{route('pizzas.edit',compact('pizza'))}}>EDIT</a>
+            <a href={{route('pizzas.show',compact('pizza'))}}><i class="fas fa-eye fa-2x"></i></a>
+            <a href={{route('pizzas.edit',compact('pizza'))}}><i class="fas fa-edit fa-2x"></i></a>
             <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
               @csrf
               @method('DELETE')
 
-              <button type="submit" class="btn btn-default">DELETE</button>
+              <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt fa-2x"></i></button>
 
             </form>
           </td>
@@ -68,5 +68,5 @@
 
      </tbody>
    </table>
- </div>
+ {{-- </div> --}}
 @endsection
