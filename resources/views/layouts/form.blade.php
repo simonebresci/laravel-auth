@@ -81,7 +81,7 @@ if (isset($edit) && !empty($edit)){
   <div class="form-group">
     <label class="control-label col-sm-2" for="name">Peso:</label>
     <div class="col-sm-10">
-      <input type="text" value="{{(isset($pizza)?$pizza->peso:'')}}" class="form-control {{($errors->has('peso')?'is-invalid':'')}}" id="peso" name="peso" placeholder="Enter img path">
+      <input type="text" value="{{(isset($pizza)?$pizza->peso:'')}}" class="form-control {{($errors->has('peso')?'is-invalid':'')}}" id="peso" name="peso" placeholder="Enter peso">
       @php
         if($errors->has('peso')){
           echo '<span class=text-danger>'. $errors->first('peso') . '</span>';

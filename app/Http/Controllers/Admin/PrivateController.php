@@ -40,21 +40,14 @@ class PrivateController extends Controller
         //Prendi dati da request Http
         $data = $request->all();
 
-        // Valida il dato
-        // $request->validate([
-        //   'name' => 'required | max:255',
-        //   'type' => 'required | max:40',
-        //   'quantityL' => 'required | numeric',
-        //   'price' => 'required | numeric',
-        //   'description' => 'required | max:2048',
-        //   'img_path' => 'required | max:2048'
-        // ]);
+        // Valida dati
+        $this->validateData($request);
 
         // Crea nuovo oggetto birra
         $pizza = new Pizza();
 
         // Riempi i campi dell'oggetto - versione compatta
-        $pizza->fill($data); //Regole di fill descritte nel modello Beer
+        $pizza->fill($data); //Regole di fill descritte nel modello Pizza
 
         // Salva nuovo oggetto in db
         $pizza->save();
@@ -97,16 +90,8 @@ class PrivateController extends Controller
     {
       $data = $request->all();
 
-      // Valida il dato
-      // $request->validate([
-      //   'name' => 'required | max:255',
-      //   'type' => 'required | max:40',
-      //   'quantityL' => 'required | numeric',
-      //   'price' => 'required | numeric',
-      //   'description' => 'required | max:2048',
-      //   'img_path' => 'required | max:2048'
-      // ]);
-
+      // Valida dati
+      $this->validateData($request);
 
       $pizza->update($data);
 
@@ -123,5 +108,19 @@ class PrivateController extends Controller
     {
       $pizza->delete();
       return redirect()->route('pizzas.index');
+    }
+
+    // Validazione dati
+    protected function validateData(Request $request){
+
+      $request->validate([
+        'img_path' => 'required | max:2048',
+        'name' => 'required | max:255',
+        'ingredients' => 'required | max:2048',
+        'price' => 'required | numeric | between: 0.00, 99.99',
+        'description' => 'required | max:2048',
+        'peso' => 'required | numeric | between: 0,10000'
+      ]);
+
     }
 }
