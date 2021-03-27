@@ -6,7 +6,7 @@
   {{-- <div class="main-content"> --}}
 
     <table class="table">
-      <thead class="thead-dark">
+      <thead class="thead-light">
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Img_path</th>
@@ -49,15 +49,30 @@
           <td>{{$pizza->peso}}</td>
           @auth
           <td>
-            <a href={{route('pizzas.show',compact('pizza'))}}><i class="fas fa-eye fa-2x"></i></a>
-            <a href={{route('pizzas.edit',compact('pizza'))}}><i class="fas fa-edit fa-2x"></i></a>
-            <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
-              @csrf
-              @method('DELETE')
+            <div class="actions">
 
-              <button type="submit" class="btn btn-default"><i class="fas fa-trash-alt fa-2x"></i></button>
 
-            </form>
+                <button class="btn btn-primary" >
+                  <a href={{route('pizzas.show',compact('pizza'))}}>
+                    <i class="fas fa-eye fa-lg"></i>
+                  </a>
+                </button>
+
+
+              <button class="btn btn-secondary">
+                <a href={{route('pizzas.edit',compact('pizza'))}}>
+                  <i class="fas fa-edit fa-lg"></i>
+                </a>
+              </button>
+
+              <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt fa-lg"></i></button>
+
+              </form>
+            </div>
           </td>
           @endauth
 

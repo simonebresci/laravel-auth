@@ -10011,12 +10011,27 @@ h3 {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 2px solid black;
+}
+
+header {
+  background-color: #fcd686;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+footer {
+  background-color: #fcd686;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top: 1px solid #fcd686;
 }
 
 .main-content {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+.main-content .welcome-img {
+  max-width: 100%;
 }
 
 .user-logged {
@@ -10024,11 +10039,22 @@ h3 {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
   border-radius: 50px;
-  font-size: 18px;
+  font-size: 14px;
   margin: 15px 0;
 }
 
+.pizza-record {
+  background-color: white;
+}
 .pizza-record img {
+  border-radius: 15px;
   max-width: 150px;
   max-height: 150px;
+}
+
+.actions a {
+  color: white;
+}
+.actions a:visited {
+  color: white;
 }
