@@ -12,7 +12,7 @@ class PizzasTableSeeder extends Seeder
      */
      public function run(Faker $faker) //Funziona grazie ad Autowiring Laravel
      {
-         for($i=0;$i<100;$i++){
+         for($i=0;$i<10;$i++){
            $pizza = new Pizza();
            $pizza->img_path = "https://img.icons8.com/ios/452/pizza.png";
            $pizza->name = $faker->name();

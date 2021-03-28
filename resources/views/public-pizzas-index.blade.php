@@ -64,6 +64,7 @@
                 </a>
               </button>
 
+              {{-- @include('layouts.modal-delete') --}}
               <form action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
                 @csrf
                 @method('DELETE')
@@ -71,6 +72,8 @@
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt fa-lg"></i></button>
 
               </form>
+
+
             </div>
           </td>
           @endauth

@@ -5,14 +5,14 @@
 @section('content')
   {{-- <div class="main-content"> --}}
     <div class="pizza-show">
-      <b>Name: {{$pizza->name}}</b> <br>
-      Ingredients {{$pizza->ingredients}} <br>
-      Price: {{$pizza->price}} <br>
-      Description: {{$pizza->description}} <br>
-      Peso: {{$pizza->peso}} <br>
+      <h2>Name: {{$pizza->name}}</h2> <br>
+      <h4>Ingredients {{$pizza->ingredients}}</h4>
+      <h4>Price: {{$pizza->price}}</h4>
+      <h4>Description: {{$pizza->description}}</h4>
+      <h4>Peso: {{$pizza->peso}}</h4>
       <img class="pizza-show-img" src="{{$pizza->img_path}}" alt="Immagine pizza">
     </div>
-    
+
     <div class="actions">
 
         <button class="btn btn-primary" >
@@ -28,13 +28,15 @@
         </a>
       </button>
 
-      <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
+      {{-- <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
         @csrf
         @method('DELETE')
 
         <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt fa-lg"></i></button>
 
-      </form>
+      </form> --}}
+
+      @include('layouts.modal-delete')
     </div>
   {{-- </div> --}}
 @endsection
