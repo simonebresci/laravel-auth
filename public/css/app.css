@@ -10017,6 +10017,7 @@ header {
   background-color: #fcd686;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  height: 85px;
 }
 
 footer {
@@ -10024,18 +10025,21 @@ footer {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   border-top: 1px solid #fcd686;
+  height: 175px;
 }
 
 .main-content {
+  min-height: calc(100vh - 85px - 175px);
   padding-top: 15px;
   padding-bottom: 15px;
 }
 .main-content .welcome-img {
-  max-width: 100%;
+  max-width: 95%;
 }
 
 .user-logged {
   border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
   border-radius: 50px;

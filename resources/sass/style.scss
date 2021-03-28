@@ -13,6 +13,8 @@
 $colorBg1:#fcd686;
 
 
+
+
 .header-container{
   display: flex;
   width:100%;
@@ -23,6 +25,7 @@ header{
   background-color: $colorBg1;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  height: 85px;
 }
 
 footer{
@@ -30,7 +33,9 @@ footer{
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   border-top: 1px solid $colorBg1;
+  height: 175px;
 }
+
 
 
 
@@ -43,11 +48,12 @@ footer{
 
 
 .main-content{
+  min-height: calc(100vh - 85px - 175px); //Sottrai  header e footer
   padding-top: 15px;
   padding-bottom: 15px;
 
   .welcome-img{
-    max-width: 100%;
+    max-width: 95%;
   }
 }
 
@@ -55,6 +61,7 @@ footer{
 
 .user-logged{
   border: 2px solid rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.5);
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 15px;
   border-radius: 50px;

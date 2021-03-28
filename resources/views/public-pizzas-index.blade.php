@@ -51,7 +51,6 @@
           <td>
             <div class="actions">
 
-
                 <button class="btn btn-primary" >
                   <a href={{route('pizzas.show',compact('pizza'))}}>
                     <i class="fas fa-eye fa-lg"></i>
@@ -65,7 +64,7 @@
                 </a>
               </button>
 
-              <form  action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
+              <form action={{route('pizzas.destroy', compact('pizza'))}}  method="post">
                 @csrf
                 @method('DELETE')
 
