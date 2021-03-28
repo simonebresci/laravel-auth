@@ -48,7 +48,7 @@
                           {{Auth::user()->name}}
                           <i class="fas fa-at"></i>
                           {{Auth::user()->email}}
-                          {{-- <a href="{{ url('/home') }}">Home</a> --}}
+                          
 
                           <i class="fas fa-sign-out-alt"></i>
                           <a href="{{ route('logout') }}"

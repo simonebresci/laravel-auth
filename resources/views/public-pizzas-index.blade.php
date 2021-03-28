@@ -41,8 +41,7 @@
               <td>{{$pizza->name}}</td>
             @endguest
 
-          {{-- <td><img class="pizza-index-icon"src="{{$pizza->img_path}}" alt="icona pizza"></a></td>
-          <td>{{$pizza->name}}</a></td> --}}
+          
           <td>{{$pizza->ingredients}}</td>
           <td>{{$pizza->price}}</td>
           <td>{{$pizza->description}}</td>
